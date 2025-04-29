@@ -13,7 +13,7 @@
                     class="nav-link btn mt-1"
                     href="https://github.com/start-angular/SB-Admin-BS4-Angular-7/archive/master.zip"
                     role="button"
-                    style="padding: 0.375rem 1rem !important; border-color: #999;"
+                    style="padding: 0.375rem 1rem !important; border-color: #999"
                 >
                     {{ 'Download Now' | translate }}
                 </a>
@@ -24,7 +24,7 @@
                     (click)="rltAndLtr()"
                     class="nav-link mt-1"
                     href="javascript:void(0)"
-                    style="padding: 0.375rem 1rem !important; border-color: #999;"
+                    style="padding: 0.375rem 1rem !important; border-color: #999"
                 >
                     RTL/LTR
                 </a>
@@ -42,7 +42,7 @@
                             src="http://i.huffpost.com/gadgets/slideshows/461162/slide_461162_6224974_sq50.jpg"
                         />
                         <div class="media-body">
-                            <h5 class="mt-0 mb-1">John Smith</h5>
+                            <h5 class="mt-0 mb-1">{{ userName }}</h5>
                             <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                             <p class="last">Lorem ipsum dolor sit amet, consectetur...</p>
                         </div>
@@ -54,7 +54,7 @@
                             src="http://i.huffpost.com/gadgets/slideshows/461162/slide_461162_6224974_sq50.jpg"
                         />
                         <div class="media-body">
-                            <h5 class="mt-0 mb-1">John Smith</h5>
+                            <h5 class="mt-0 mb-1">{{ userName }}</h5>
                             <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                             <p class="last">Lorem ipsum dolor sit amet, consectetur...</p>
                         </div>
@@ -126,7 +126,7 @@
             </li>
             <li class="nav-item dropdown" ngbDropdown>
                 <a class="nav-link" href="javascript:void(0)" ngbDropdownToggle>
-                    <i class="fa fa-user"></i> John Smith <b class="caret"></b>
+                    <i class="fa fa-user"></i> {{ userName }} <b class="caret"></b>
                 </a>
                 <div class="dropdown-menu-right" ngbDropdownMenu>
                     <a class="dropdown-item" href="javascript:void(0)">
