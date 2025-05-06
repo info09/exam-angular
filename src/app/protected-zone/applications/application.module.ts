@@ -19,11 +19,13 @@ import { KeyFilterModule } from 'primeng/keyfilter';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
 import { TooltipModule } from 'primeng/tooltip';
+import { CategoryDetailComponent } from './category/category-detail/category-detail.component';
 
 @NgModule({
-    declarations: [ExamsComponent, CategoryComponent],
+    declarations: [ExamsComponent, CategoryComponent, CategoryDetailComponent],
     imports: [
         ApplicationRoutingModule,
+        ValidationMessageModule,
         CommonModule,
         PanelModule,
         ButtonModule,

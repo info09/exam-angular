@@ -6,6 +6,7 @@ import { CategoryDto, Pagination } from './../../../shared/models';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subscription, takeUntil } from 'rxjs';
 import { MessageConstants } from '../constants';
+import { CategoryDetailComponent } from './category-detail/category-detail.component';
 
 @Component({
     selector: 'app-category',
@@ -56,8 +57,23 @@ export class CategoryComponent implements OnInit, OnDestroy {
         this.blockedPanel = false;
     }
 
-    pageChanged(event: any) {}
-    showAddModal() {}
+    pageChanged(event: any) {
+        this.pageIndex = event.page + 1;
+        this.pageSize = event.rows;
+        this.loadData();
+    }
+    showAddModal() {
+        this.bsModalRef = this.modalService.show(CategoryDetailComponent, {
+            class: 'modal-lg',
+            backdrop: 'static'
+        });
+
+        this.bsModalRef.content.savedEvent.subscribe((response) => {
+            this.bsModalRef.hide();
+            this.loadData();
+            this.selectedItems = [];
+        });
+    }
 
     deleteItems() {
         if (this.selectedItems.length === 0) {
@@ -91,5 +107,28 @@ export class CategoryComponent implements OnInit, OnDestroy {
         );
     }
 
-    showEditModal() {}
+    showEditModal() {
+        if (this.selectedItems.length === 0) {
+            this.notificationService.showError(MessageConstants.NOT_CHOOSE_ANY_RECORD);
+            return;
+        }
+
+        const initialState = {
+            entityId: this.selectedItems[0].id
+        };
+
+        this.bsModalRef = this.modalService.show(CategoryDetailComponent, {
+            initialState: initialState,
+            class: 'modal-lg',
+            backdrop: 'static'
+        });
+
+        this.subscription.add(
+            this.bsModalRef.content.savedEvent.subscribe((response) => {
+                this.bsModalRef.hide();
+                this.loadData();
+                this.selectedItems = [];
+            })
+        );
+    }
 }
