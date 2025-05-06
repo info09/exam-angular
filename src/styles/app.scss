@@ -5,6 +5,28 @@
 @import 'rtl';
 @import 'responsive';
 
+/* PrimeNG Global Styles */
+.p-button {
+    border-radius: 6px;
+}
+
+.p-button.p-button-rounded {
+    border-radius: 2rem;
+}
+
+.p-button .p-button-icon-left {
+    margin-right: 0.5rem;
+}
+
+/* Sidebar Styles */
+.sidebar .submenu a {
+    text-decoration: none;
+}
+
+.sidebar .list-group-item {
+    text-decoration: none;
+}
+
 @media print {
     .breadcrumb {
         display: none !important;

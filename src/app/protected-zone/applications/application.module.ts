@@ -11,9 +11,17 @@ import { ValidationMessageModule } from '../../shared/modules/validation-message
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotificationService } from '../../shared/services/notification.service';
 import { ApplicationRoutingModule } from './application-routing.module';
+import { ExamsComponent } from './exam/exam.component';
+import { CategoryComponent } from './category/category.component';
+import { CheckboxModule } from 'primeng/checkbox';
+import { CalendarModule } from 'primeng/calendar';
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { InputTextModule } from 'primeng/inputtext';
+import { RippleModule } from 'primeng/ripple';
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
-    declarations: [],
+    declarations: [ExamsComponent, CategoryComponent],
     imports: [
         ApplicationRoutingModule,
         CommonModule,
@@ -23,9 +31,15 @@ import { ApplicationRoutingModule } from './application-routing.module';
         PaginatorModule,
         BlockUIModule,
         FormsModule,
+        InputTextModule,
         ReactiveFormsModule,
         ProgressSpinnerModule,
         ValidationMessageModule,
+        KeyFilterModule,
+        CalendarModule,
+        CheckboxModule,
+        RippleModule,
+        TooltipModule,
         ModalModule.forRoot()
     ],
     providers: [NotificationService, BsModalService]

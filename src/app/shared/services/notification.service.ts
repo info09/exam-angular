@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-declare var alertify: any;
+import * as alertify from 'alertifyjs';
 @Injectable()
 export class NotificationService {
     private _notifier: any = alertify;

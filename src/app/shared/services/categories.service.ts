@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CategoryCreate, CategoryDto, CategoryUpdate, Pagination } from '../models';
-import { environment } from '@environments/environment';
 import { catchError } from 'rxjs';
+import { environment } from './../../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
-export class RolesService extends BaseService {
+export class CategoryService extends BaseService {
     private _sharedHeaders = new HttpHeaders();
     constructor(private http: HttpClient) {
         super();
@@ -28,7 +28,7 @@ export class RolesService extends BaseService {
             .pipe(catchError(this.handleError));
     }
 
-    delete(id: string) {
+    delete(id) {
         return this.http
             .delete(`${environment.apiUrl}/api/Categories/${id}`, { headers: this._sharedHeaders })
             .pipe(catchError(this.handleError));
@@ -49,7 +49,7 @@ export class RolesService extends BaseService {
     getAllPaging(searchKeyword: string, pageIndex: number, pageSize: number) {
         return this.http
             .get<ApiResult<Pagination<CategoryDto>>>(
-                `${environment.apiUrl}/api/Categories?searchKeyword=${searchKeyword}&pageIndex=${pageIndex}&pageSize=${pageSize}`,
+                `${environment.apiUrl}/api/Categories/paging?searchKeyword=${searchKeyword}&pageIndex=${pageIndex}&pageSize=${pageSize}`,
                 { headers: this._sharedHeaders }
             )
             .pipe(catchError(this.handleError));
